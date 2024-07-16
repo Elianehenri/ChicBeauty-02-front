@@ -1,0 +1,80 @@
+.produtos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; 
+  margin-top: 30px; 
+}
+
+.produto-single {
+  width: 23%; /* Aumenta ligeiramente a largura dos produtos */
+  border: 1px solid var(--cinza-claro);
+  text-align: center;
+  margin-bottom: 30px; /* Aumenta a margem inferior */
+  padding: 20px; /* Aumenta o espaço interno */
+  transition: transform 0.3s ease; /* Adiciona uma transição suave */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
+}
+
+.produto-single:hover {
+  transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+}
+
+.produto-single .img-produto img {
+  width: 100%;
+}
+
+.produto-single h2 {
+  color: var(--preto);
+  font-size: 19px;
+  margin-top: 10px; 
+  font-weight: bold; 
+}
+
+.produto-single h3 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 22px; /* Reduz ligeiramente o tamanho do preço */
+  font-weight: bold;
+  margin: 10px 0; 
+}
+
+.produto-single p {
+  margin-bottom: 15px; /* Aumenta o espaço abaixo da descrição */
+}
+
+.produto-single button {
+  border: none;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  color: var(--branco);
+  cursor: pointer;
+  font-size: 16px; /* Aumenta ligeiramente o tamanho da fonte do botão */
+  padding: 10px 25px; /* Aumenta o espaço interno do botão */
+  transition: background-color 0.3s ease; /* Adiciona uma transição suave na cor de fundo */
+}
+
+.produto-single button:hover {
+  background-color: var(--primary-color); /* Altera a cor de fundo ao passar o mouse */
+}
+
+.titulo-categoria h2 {
+  text-align: center; 
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+  .produtos-container {
+    flex-direction: column; /* Alinha os produtos verticalmente */
+    align-items: center; /* Centraliza os produtos */
+  }
+
+  .produto-single {
+    width: 90%; /* Define a largura do produto para ocupar quase toda a tela */
+    margin-bottom: 20px; /* Ajusta a margem inferior */
+  }
+
+  .produto-single:nth-child(n+2) {
+    display: none; /* Esconde todos os produtos a partir do segundo */
+  }
+}

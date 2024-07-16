@@ -1,0 +1,16 @@
+## Atividades realizadas no projeto.
+
+# Produtos:
+- [x]  No mobile deixar somente uma imagem
+- [x]  Criar tela de login e cadastro
+- [x]  Na barra colocar por categoria quando clicar
+  
+# Login
+- [x]  Login cursor pointer no mostrar senha
+- [x]  Açao mostrar senha js
+- [x]  Quando estiver logado ir pra pagina inicial
+ 
+
+# Register User
+- [x]  Responsividade
+- [x]  Validaçao do formulario 

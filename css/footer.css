@@ -1,0 +1,67 @@
+
+.footer {
+    margin: 0;
+    padding: 16px 0;
+    width: 100%;
+    background-color: var(--terciario-color);
+    color: var(--preto);
+    text-align: center;
+    font-size: 10px;
+  }
+  
+.footer__title {
+    text-align: center;
+    margin-bottom: 0; /* Alteração aqui para remover o espaço entre as linhas */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    max-height: 1.5625em; 
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 20em;  
+}
+
+/* Regras de mídia para telas maiores */
+@media screen and (min-width: 768px ) { /* 768px */
+    .footer-content {
+        width: 100%;
+    }
+
+    .footer-column {
+        flex-basis: 30%; 
+        margin: 0;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    max-height: 1.5625em; 
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 20em;  
+}
+
+
+
+/* Regras de mídia para telas maiores */
+@media screen and (min-width: 768px ) { /* 768px */
+    .footer-content {
+        width: 100%;
+    }
+
+    .footer-column {
+        flex-basis: 30%; 
+        margin: 0;
+    }
+}

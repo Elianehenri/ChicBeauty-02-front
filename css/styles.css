@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("reset.css");
+@import url("produtos.css");
+@import url("header.css");
+@import url("registerUser.css");
+@import url("login.css");
+@import url("footer.css");
+
+:root {
+    --cor-de-fundo: #f5f5f5;
+    --branco: #FFFFFF;
+    --cinza:#474646;
+    --preto: #000000;
+    --cinza-icon:#C0BFBF;
+    --cinza-border:#a9a9a9;
+    --cinza-input:#EFEFEF;
+    --cinza-claro: #E4E4E4;
+    /* --primary-color: #FA8072; */
+    --primary-color: #de787d;
+    --secondary-color: #00cc99;
+    --terciario-color: #55b9b2;
+    --color-menu: #d5ffff;
+    --color-erro:red; 
+
+    --fonte-principal: "Poppins", sans-serif;
+    --fonte-secundario: "Josefin Sans,sans-serif";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  background-color: var(--cor-de-fundo);
+  font-family: var(--fonte-principal);
+}
+
+
+
+
+
+
+

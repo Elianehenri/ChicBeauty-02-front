@@ -1,0 +1,22 @@
+# Arquivos e diretórios a serem ignorados no projeto HTML/CSS/JS
+
+# Arquivos de configuração
+.vscode
+.idea
+
+# Arquivos gerados automaticamente
+node_modules/
+dist/
+*.log
+npm-debug.log*
+
+# Arquivos de compilação
+*.min.css
+*.min.js
+
+# Arquivos de build
+/build/
+
+# Arquivos específicos
+config.json
+.env

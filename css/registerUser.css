@@ -1,0 +1,115 @@
+/* Estilos para telas maiores (desktop) */
+.principal {
+    width: 50vw;
+    margin: 80px auto 96px auto;
+    background-color: var(--cinza-claro); /* Cor de fundo para a seção principal */
+    padding: 20px; /* Adiciona espaçamento interno */
+    border-radius: 15px; /* Adiciona cantos arredondados */
+    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.75); /* Adiciona sombra */
+}
+
+.principal__subtitulo {
+    font-weight: 700;
+    line-height: 26px;
+    color: var(--preto);
+    margin: 48px 0 32px 0;
+    text-align: center;
+}
+
+.campo__etiqueta {
+    display: block;
+    font-weight: 700;
+    line-height: 24px;
+    color: var(--cinza);
+    margin-left: 1em;
+}
+
+.campo__escrita {
+    border: 1px solid var(--cinza-border);
+    border-radius: 10px;
+    padding: 1em;
+    width: 100%;
+    margin-bottom: 1em; /* Adiciona espaço abaixo de cada campo */
+    background-color: var(--cinza-input); /* Cor de fundo para os campos de entrada */
+}
+
+.required {
+    color: var(--color-erro); /* Cor vermelha para o asterisco */
+    margin-left: 0.25em; /* Pequeno espaçamento à esquerda */
+    font-weight: bold; /* Negrito para destaque */
+}
+
+.formulario__campo {
+    margin: 9.6px 48px 9.6px 0;
+    display: flex;
+    flex-direction: column; /* Altera para coluna em dispositivos móveis */
+}
+
+/* Contêiner para o botão e o link "Início" */
+.formulario__acoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens horizontalmente */
+    gap: 10px; /* Espaçamento entre o botão e o link */
+    margin-top: 20px; /* Espaçamento superior */
+}
+
+/* Estilizando o botão "Cadastrar" */
+.formulario__botao {
+    background: var(--secondary-color);
+    border-radius: 24px;
+    padding: 16px 64px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    border: none;
+    color: var(--branco);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 18px;
+    transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+}
+
+/* Estilizando o botão "Cadastrar" quando o mouse passa por cima */
+.formulario__botao:hover {
+    background-color: var(--primary-color); /* Altera a cor de fundo ao passar o mouse */
+}
+
+.error-message {
+    color: var(--color-erro); /* Cor vermelha para mensagens de erro */
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Estilos responsivos para dispositivos móveis */
+@media (max-width: 768px) {
+    .principal {
+        width: 90vw;
+        margin: 40px auto 48px auto;
+        padding: 15px;
+    }
+
+    .principal__subtitulo {
+        font-size: 16px;
+        margin: 24px 0 16px 0;
+        text-align: center;
+    }
+
+    .campo__etiqueta {
+        font-size: 14px;
+        margin-left: 0.5em;
+    }
+
+    .campo__escrita {
+        padding: 0.8em;
+    }
+
+    .formulario__campo {
+        margin: 8px 0;
+    }
+
+    .formulario__botao {
+        padding: 12px 48px;
+        font-size: 18px;
+    }
+}

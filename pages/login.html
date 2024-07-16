@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Login Page</title>
+</head>
+<body>
+  
+<div class="container">
+    <!-- Divisão para a imagem -->
+    <div class="image-container">
+        <img class="img-login" src="../images/banner.png" alt="">
+    </div>
+
+    <!-- Divisão para o logo e formulário -->
+    <div class="content-container">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <img class="img-logo" src="../images/logo.png" alt="">
+            <p class="saudacao">Seja bem vindo</p>
+        </div>
+        <form id="loginForm" class="login">
+            <div class="input-login">
+                <i class="fas fa-envelope"></i>
+                <input  
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="E-mail"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                    required>
+            </div>
+            <small id="emailError" class="text-danger" aria-live="polite" style="display:none;">*E-mail invalido: email@email.com</small>
+            <div class="input-login">
+                <i class="fas fa-lock"></i>
+                <input  
+                    name="senha"
+                    id="password"
+                    type="password"
+                    placeholder="Senha"
+                    minlength="6"
+                    required>
+                <abbr title="Mostrar"><i id="showPassword" class="fas fa-eye icon-modify"></i></abbr>
+            </div>
+            
+            <small id="passwordError" class="text-danger" aria-live="polite" style="display:none;">*A senha deve conter 6 dígitos!</small>
+            <button type="submit">Entrar</button>
+        </form>
+        <p>Não possui uma conta? <a href="../pages/registerUser.html">Registre-se aqui</a></p>
+        <br>
+        <p>Pagina Inicial <a href="../index.html">Inicio</a></p>
+    </div>
+</div>
+
+<script src="../js/login.js"></script>
+ 
+</body>
+</html>

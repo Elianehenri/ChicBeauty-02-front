@@ -50,9 +50,9 @@
 </html> -->
 
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -60,23 +60,27 @@
     <link rel="stylesheet" href="../css/styles.css">
     <title>Formulário de cadastro</title>
 </head>
+
 <body>
     <main class="principal">
         <h2 class="principal__titulo"></h2>
         <form class="principal__formulario" id="formulario" enctype="multipart/form-data">
             <h3 class="principal__subtitulo">Dados pessoais</h3>
-
-            <!-- Campo para o avatar -->
-            <div class="formulario__campo">
-                <label class="campo__etiqueta" for="avatar">Avatar</label>
-                <input type="file" name="avatar" id="avatar" class="campo__escrita" accept="image/*" required />
+            
+            <!-- Adicionar contêiner para o avatar -->
+            <div class="avatar__container">
+                <div class="avatar__wrapper">
+                    <img id="avatarPreview" src="../path/to/default/avatar.jpg" alt="Avatar" class="avatar__image">
+                    <input type="file" name="avatar" id="avatar" class="avatar__input">
+                    <label for="avatar" class="avatar__label">Upload</label>
+                </div>
             </div>
-
+            
             <div class="formulario__campo">
                 <label class="campo__etiqueta" for="nome">Nome Completo <span class="required">*</span></label>
                 <input name="nome" id="nome" class="campo__escrita" required />
             </div>
-
+            
             <div class="formulario__campo">
                 <label class="campo__etiqueta" for="email">E-mail <span class="required">*</span></label>
                 <input name="email" id="email" type="email" class="campo__escrita" required />
@@ -87,7 +91,7 @@
                 <label class="campo__etiqueta" for="senha">Senha <span class="required">*</span></label>
                 <input name="senha" id="senha" type="password" class="campo__escrita" required />
             </div>
-
+            
             <div class="formulario__acoes">
                 <input type="submit" value="Cadastrar" class="formulario__botao" id="enviar">
                 <p><a href="../index.html">Página Inicial</a></p>
@@ -98,4 +102,5 @@
     <script src="../js/registerUser.js"></script>
 </body>
 </html>
+
 

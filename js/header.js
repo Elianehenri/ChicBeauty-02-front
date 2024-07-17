@@ -1,5 +1,4 @@
 
-
 document.addEventListener("DOMContentLoaded", function() {
     // Funções para carregar conteúdo
     function loadHeader() {
@@ -8,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("header-container").innerHTML = this.responseText;
                 setupHeaderEvents();
+                updateHeaderForLoggedInUser();
             }
         };
         xhttp.open("GET", "../pages/header.html", true);
@@ -104,6 +104,43 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
     }
+
+    // Atualizar cabeçalho para usuário logado
+    function updateHeaderForLoggedInUser() {
+        const token = localStorage.getItem('token');
+        const user = JSON.parse(localStorage.getItem('user'));
+
+        if (token && user) {
+            const loginLink = document.getElementById('loginLink');
+            const userDetails = document.getElementById('userDetails');
+            const userAvatar = document.getElementById('userAvatar');
+            const userName = document.getElementById('userName');
+            const personIcon = document.querySelector('.login-option span.material-symbols-outlined');
+
+            // Ocultar o link de login e o ícone de pessoa
+            if (loginLink) loginLink.style.display = 'none';
+            if (personIcon) personIcon.style.display = 'none';
+
+           // Exibir os detalhes do usuário
+        if (userDetails) userDetails.style.display = 'flex';
+        if (userAvatar) userAvatar.src = `http://localhost:3000/${user.avatar}`;
+        if (userName) userName.textContent = user.nome;
+
+        // Atualizar menu mobile
+        const mobileUserDetails = document.getElementById('mobileUserDetails');
+        const userAvatarMobile = document.getElementById('userAvatarMobile');
+        const userNameMobile = document.getElementById('userNameMobile');
+        const mobileLoginOption = document.getElementById('mobileLoginOption');
+
+        // Ocultar login no mobile e mostrar detalhes do usuário
+        mobileLoginOption.style.display = 'none';
+        if (mobileUserDetails) {
+            mobileUserDetails.style.display = 'flex';
+            userAvatarMobile.src = `http://localhost:3000/${user.avatar}`;
+            userNameMobile.textContent = user.nome;
+        }
+        }
+    }
 });
 
 // Função para atualizar o contador de itens do carrinho
@@ -113,5 +150,3 @@ function updateCartCounter(count) {
     cartCounter.textContent = count;
     mobileCartCounter.textContent = count;
 }
- 
-

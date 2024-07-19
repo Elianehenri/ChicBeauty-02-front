@@ -1,4 +1,5 @@
 
+
 document.addEventListener("DOMContentLoaded", function() {
     // Lista de categorias para mapeamento
     const categorias = [
@@ -69,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             const produtoElement = `
                                 <div class="produto-single">
                                     <div class="img-produto">
-                                        <img src="${produto.imagem}" alt="${produto.nome}" />
+                                        <img src="http://localhost:3000${produto.imagem}" alt="${produto.nome}" />
                                     </div>
                                     <div class="content-produto">
                                         <h2>${produto.nome}</h2>

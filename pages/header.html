@@ -1,4 +1,4 @@
-
+<!-- todo ver menu do desktop -->
 
  <header>
     <div class="top-header">
@@ -9,7 +9,7 @@
             <img src="images/logo.png" alt="logo" />
         </div>
         <h1 class="desktop-only">
-            <span class="chic">Chic</span> 
+            <span class="chic">Chic</span>
             <span class="beauty">Beauty</span>
         </h1>
         <div class="icon-mobile">
@@ -22,12 +22,12 @@
             <input type="search" name="search" placeholder="O que você procura hoje?" />
         </div>
         <nav class="options">
-            <div class="login-option">
+            <div class="login-option" id="desktopLoginOption">
                 <span class="material-symbols-outlined">person</span>
                 <a href="./pages/login.html" id="loginLink">Entrar</a>
-                <div id="userDetails" style="display: none;">
-                    <img id="userAvatar" src="" alt="Avatar" class="user-avatar">
-                    <span id="userName"></span>
+                <div id="desktopUserDetails" style="display: none;">
+                    <span id="userNameDesktop"></span>
+                    <button id="logoutButtonDesktop" class="logoutButton">Sair</button>
                 </div>
             </div>
             <div class="carrinho-option">
@@ -43,11 +43,9 @@
         <a href="#" class="category-link" data-category="corpo-e-banho">Corpo e Banho</a>
         <a href="#" class="category-link" data-category="cabelos">Cabelos</a>
         <a href="#" class="category-link" data-category="make">Make</a>
-        
-        <!-- Adicionando detalhes do usuário no menu mobile -->
         <div class="login-option" id="mobileUserDetails" style="display: none;">
-            <img id="userAvatarMobile" src="" alt="Avatar" class="user-avatar">
             <span id="userNameMobile"></span>
+            <button id="logoutButtonMobile" class="logoutButton">Sair</button>
         </div>
         <div class="login-option" id="mobileLoginOption">
             <span class="material-symbols-outlined">person</span>
@@ -58,3 +56,5 @@
         <input type="search" name="search" placeholder="O que você procura hoje?" />
     </div>
 </header>
+
+

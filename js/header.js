@@ -1,6 +1,6 @@
+//todo ver o login no menu do destopp
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Funções para carregar conteúdo
     function loadHeader() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function() {
     loadProdutos();
     loadFooter();
 
-    // Função para filtrar produtos
     function filterProducts(category) {
         const allProducts = document.querySelectorAll(".produtos");
 
@@ -65,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Configura eventos do cabeçalho após carregar conteúdo
     function setupHeaderEvents() {
         const categoryLinks = document.querySelectorAll(".category-link");
 
@@ -105,48 +103,56 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Atualizar cabeçalho para usuário logado
     function updateHeaderForLoggedInUser() {
         const token = localStorage.getItem('token');
         const user = JSON.parse(localStorage.getItem('user'));
 
         if (token && user) {
             const loginLink = document.getElementById('loginLink');
-            const userDetails = document.getElementById('userDetails');
-            const userAvatar = document.getElementById('userAvatar');
-            const userName = document.getElementById('userName');
-            const personIcon = document.querySelector('.login-option span.material-symbols-outlined');
+            const personIcon = document.querySelector('#desktopLoginOption .material-symbols-outlined');
+            const desktopUserDetails = document.getElementById('desktopUserDetails');
+            const userNameDesktop = document.getElementById('userNameDesktop');
+            const logoutButtonDesktop = document.getElementById('logoutButtonDesktop');
 
-            // Ocultar o link de login e o ícone de pessoa
+            // Ocultar o link de login e o ícone de pessoa no desktop
             if (loginLink) loginLink.style.display = 'none';
             if (personIcon) personIcon.style.display = 'none';
 
-           // Exibir os detalhes do usuário
-        if (userDetails) userDetails.style.display = 'flex';
-        if (userAvatar) userAvatar.src = `http://localhost:3000/${user.avatar}`;
-        if (userName) userName.textContent = user.nome;
+            // Exibir os detalhes do usuário no desktop
+            if (desktopUserDetails) {
+                desktopUserDetails.style.display = 'flex';
+                if (userNameDesktop) userNameDesktop.textContent = user.nome;
+            }
 
-        // Atualizar menu mobile
-        const mobileUserDetails = document.getElementById('mobileUserDetails');
-        const userAvatarMobile = document.getElementById('userAvatarMobile');
-        const userNameMobile = document.getElementById('userNameMobile');
-        const mobileLoginOption = document.getElementById('mobileLoginOption');
+            // Atualizar menu mobile
+            const mobileUserDetails = document.getElementById('mobileUserDetails');
+            const userNameMobile = document.getElementById('userNameMobile');
+            const mobileLoginOption = document.getElementById('mobileLoginOption');
+            const logoutButtonMobile = document.getElementById('logoutButtonMobile');
 
-        // Ocultar login no mobile e mostrar detalhes do usuário
-        mobileLoginOption.style.display = 'none';
-        if (mobileUserDetails) {
-            mobileUserDetails.style.display = 'flex';
-            userAvatarMobile.src = `http://localhost:3000/${user.avatar}`;
-            userNameMobile.textContent = user.nome;
-        }
+            // Ocultar login no mobile e mostrar detalhes do usuário
+            if (mobileLoginOption) mobileLoginOption.style.display = 'none';
+            if (mobileUserDetails) {
+                mobileUserDetails.style.display = 'flex';
+                if (userNameMobile) userNameMobile.textContent = user.nome;
+            }
+
+            // Configurar evento de logout para desktop e mobile
+            const logoutButtons = document.querySelectorAll('.logoutButton');
+            logoutButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    window.location.reload(); // Recarrega a página para atualizar o estado
+                });
+            });
         }
     }
 });
 
-// Função para atualizar o contador de itens do carrinho
 function updateCartCounter(count) {
     const cartCounter = document.getElementById("cart-counter");
     const mobileCartCounter = document.getElementById("mobile-cart-counter");
-    cartCounter.textContent = count;
-    mobileCartCounter.textContent = count;
+    if (cartCounter) cartCounter.textContent = count;
+    if (mobileCartCounter) mobileCartCounter.textContent = count;
 }

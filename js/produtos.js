@@ -53,9 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 // Agrupa os produtos por categoria
                 data.forEach(produto => {
-                    const categoriaId = produto.categoria;
-                    const categoriaNome = getCategoriaNome(categoriaId);
-
+                    const categoriaNome = produto.categoria;
                     if (!categoryProductsMap[categoriaNome]) {
                         categoryProductsMap[categoriaNome] = [];
                     }
@@ -83,6 +81,8 @@ document.addEventListener("DOMContentLoaded", function() {
                             `;
                             categoryContainer.innerHTML += produtoElement;
                         });
+                    } else {
+                        console.error('Contêiner não encontrado para a categoria:', category);
                     }
                 });
             })

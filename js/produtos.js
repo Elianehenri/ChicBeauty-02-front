@@ -70,12 +70,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     categoryProductsMap[categoriaNome].push(produto);
                 });
 
-                // Adiciona até 4 produtos por categoria
+                // Adiciona os produtos por categoria
                 Object.keys(categoryProductsMap).forEach(category => {
-                    const products = categoryProductsMap[category].slice(0, 4);
+                    const products = categoryProductsMap[category];
+                    const displayProducts = window.location.pathname.includes('produtos.html') ? products : products.slice(0, 4);
                     const categoryContainer = document.querySelector(`.produtos[data-category="${category}"] .produtos-container`);
                     if (categoryContainer) {
-                        products.forEach(produto => {
+                        displayProducts.forEach(produto => {
                             const produtoElement = `
                                 <div class="produto-single">
                                     <div class="img-produto">

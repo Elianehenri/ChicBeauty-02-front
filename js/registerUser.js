@@ -1,20 +1,6 @@
 
-
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('formulario');
-    const avatarInput = document.getElementById('avatar');
-    const avatarPreview = document.getElementById('avatarPreview');
-
-    avatarInput.addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                avatarPreview.src = e.target.result;
-            }
-            reader.readAsDataURL(file);
-        }
-    });
 
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Evita o envio padrão do formulário

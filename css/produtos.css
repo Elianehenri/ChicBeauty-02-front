@@ -62,6 +62,13 @@
   font-weight: bold;
 }
 
+.pagina-inicial {
+  text-align: center;
+}
+.buttonCadastrarProduto {
+  margin-top: 65px;
+}
+
 /* Estilos para dispositivos móveis */
 @media (max-width: 768px) {
   .produtos-container {

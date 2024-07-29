@@ -1,65 +1,56 @@
-<!-- 
 
- <section class="produtos" data-category="perfumaria">
-  <div class="titulo-categoria">
-    <h2>PERFUMES</h2>
-  </div>
-  <div class="produtos-container"></div>
-</section>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Produtos</title>
+</head>
+<body>
+    <header id="header-container"></header>
+    
+    <main>
+        <!-- Botão "Cadastrar Novo Produto" visível somente nesta página -->
+        <div id="cadastrar-novo-produto" class="cadastrar-novo-produto" style="display: none;">
+            <button class="buttonCadastrarProduto" onclick="window.location.href='../pages/registerProdutos.html'">Cadastrar Novo Produto</button>
+        </div>
 
-<section class="produtos" data-category="corpo-e-banho">
-  <div class="titulo-categoria">
-    <h2>CORPO E BANHO</h2>
-  </div>
-  <div class="produtos-container"></div>
-</section>
+        <!-- Seções de produtos -->
+        <section class="produtos" data-category="perfumaria">
+            <div class="titulo-categoria">
+                <h2>PERFUMES</h2>
+            </div>
+            <div class="produtos-container"></div>
+        </section>
 
-<section class="produtos" data-category="cabelos">
-  <div class="titulo-categoria">
-    <h2>CABELOS</h2>
-  </div>
-  <div class="produtos-container"></div>
-</section>
+        <section class="produtos" data-category="corpo-e-banho">
+            <div class="titulo-categoria">
+                <h2>CORPO E BANHO</h2>
+            </div>
+            <div class="produtos-container"></div>
+        </section>
 
-<section class="produtos" data-category="make">
-  <div class="titulo-categoria">
-    <h2>MAKE</h2>
-  </div>
-  <div class="produtos-container"></div>
-</section> -->
-<!-- produtos.html -->
-<section class="produtos" data-category="perfumaria">
-  <div class="titulo-categoria">
-    <h2>PERFUMES</h2>
-    <button class="btn btn-primary" onclick="window.location.href='../pages/registerProdutos.html'">Cadastrar Produto</button>
-    <button class="btn btn-primary" onclick="window.location.href='../pages/registerProdutos.html'">Editar Produto</button>
-  </div>
-  <div class="produtos-container"></div>
-</section>
+        <section class="produtos" data-category="cabelos">
+            <div class="titulo-categoria">
+                <h2>CABELOS</h2>
+            </div>
+            <div class="produtos-container"></div>
+        </section>
 
-<section class="produtos" data-category="corpo-e-banho">
-  <div class="titulo-categoria">
-    <h2>CORPO E BANHO</h2>
-    <button class="btn btn-primary" onclick="window.location.href='../pages/registerProdutos.html'">Cadastrar Produto</button>
-    <button class="btn btn-primary" onclick="window.location.href='../pages/editProdutos.html'">Editar Produto</button>
-  </div>
-  <div class="produtos-container"></div>
-</section>
+        <section class="produtos" data-category="make">
+            <div class="titulo-categoria">
+                <h2>MAKE</h2>
+            </div>
+            <div class="produtos-container"></div>
+        </section>
+        
+        <!-- Link para a página inicial -->
+        <div id="pagina-inicial" class="pagina-inicial">
+            <!-- O conteúdo será inserido pelo JavaScript -->
+        </div>
+    </main>
 
-<section class="produtos" data-category="cabelos">
-  <div class="titulo-categoria">
-    <h2>CABELOS</h2>
-    <button class="btn btn-primary" onclick="window.location.href='../pages/registerProdutos.html'">Cadastrar Produto</button>
-    <button class="btn btn-primary" onclick="window.location.href='../pages/registerProdutos.html'">Editar Produto</button>
-  </div>
-  <div class="produtos-container"></div>
-</section>
-
-<section class="produtos" data-category="make">
-  <div class="titulo-categoria">
-    <h2>MAKE</h2>
-    <button class="btn btn-primary" onclick="window.location.href='../pages/registerProdutos.html'">Cadastrar Produto</button>
-    <button class="btn btn-primary" onclick="window.location.href='../pages/registerProdutos.html'">Editar Produto</button>
-  </div>
-  <div class="produtos-container"></div>
-</section>
+    <script src="../js/produtos.js"></script>
+</body>
+</html>

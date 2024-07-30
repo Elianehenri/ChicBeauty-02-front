@@ -1,4 +1,5 @@
 
+
 document.addEventListener("DOMContentLoaded", function() {
     function loadHeader() {
         var xhttp = new XMLHttpRequest();
@@ -7,11 +8,24 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById("header-container").innerHTML = this.responseText;
                 setupHeaderEvents();
                 updateHeaderForLoggedInUser();
+                showAdminProductButton(); // Mostrar botão de produtos para admin
                 loadProductScript(); // Carrega o script produto.js após o cabeçalho ser carregado
             }
         };
         xhttp.open("GET", "../pages/header.html", true);
         xhttp.send();
+    }
+
+    function showAdminProductButton() {
+        const user = JSON.parse(localStorage.getItem('user'));
+        const adminEmail = "admin@admin.com";
+        const adminProductButton = document.getElementById('productsLink');
+
+        if (user && user.email === adminEmail) {
+            if (window.location.pathname.includes('index.html')) {
+                adminProductButton.style.display = 'block';
+            }
+        }
     }
 
     function loadCarousel() {

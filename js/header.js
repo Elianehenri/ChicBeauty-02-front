@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function loadProductScript() {
         var script = document.createElement('script');
-        script.src = './produtos.js'; // Caminho para o seu script produto.js
+        script.src = '../js/produtos.js'; // Caminho para o seu script produto.js
         script.onload = function() {
             console.log('Script produto.js carregado com sucesso.');
         };

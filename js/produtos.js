@@ -2,24 +2,22 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Função para preencher o <select> com categorias
     function populateCategories() {
+        const categoriaSelect = document.getElementById('categoria');
+
+        if (!categoriaSelect) {
+            console.warn('Elemento <select> com ID "categoria" não encontrado. A função populateCategories não será executada.');
+            return; // Retorna se o elemento não for encontrado
+        }
+
         fetch('http://localhost:3000/api/categories')
             .then(response => response.json())
             .then(categories => {
-                const categoriaSelect = document.getElementById('categoria');
-                
-                if (!categoriaSelect) {
-                    console.error('Elemento <select> com ID "categoria" não encontrado.');
-                    return;
-                }
-                
-                // Remove todas as opções existentes, exceto a primeira
                 categoriaSelect.innerHTML = '<option value="">Selecione</option>';
-                
-                // Adiciona uma opção para cada categoria
+
                 categories.forEach(category => {
                     const option = document.createElement('option');
-                    option.value = category._id; // Define o ID da categoria como valor da opção
-                    option.textContent = category.nome; // Define o nome da categoria como texto da opção
+                    option.value = category._id;
+                    option.textContent = category.nome;
                     categoriaSelect.appendChild(option);
                 });
             })
@@ -54,14 +52,13 @@ document.addEventListener("DOMContentLoaded", function() {
         fetch('http://localhost:3000/api/products')
             .then(response => response.json())
             .then(data => {
-                console.log(data); // Verifique os dados retornados
+                console.log(data);
 
                 const produtosContainers = document.querySelectorAll('.produtos-container');
                 produtosContainers.forEach(container => container.innerHTML = '');
 
                 const categoryProductsMap = {};
 
-                // Agrupa os produtos por categoria
                 data.forEach(produto => {
                     const categoriaNome = produto.categoria;
                     if (!categoryProductsMap[categoriaNome]) {
@@ -70,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     categoryProductsMap[categoriaNome].push(produto);
                 });
 
-                // Adiciona os produtos por categoria
                 Object.keys(categoryProductsMap).forEach(category => {
                     const products = categoryProductsMap[category];
                     const displayProducts = window.location.pathname.includes('produtos.html') ? products : products.slice(0, 4);

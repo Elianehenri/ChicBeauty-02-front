@@ -22,3 +22,13 @@ Acesse o [link](https://chic-beauty-02.vercel.app/index.html) para visualizar o 
 
 # Autor
 Eliane Henriqueta
+
+admin@admin.com
+
+senha
+Admin123@
+
+user@user.com
+senha
+
+User123@

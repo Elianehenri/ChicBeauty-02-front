@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function showAdminProductButton() {
         const user = JSON.parse(localStorage.getItem('user'));
         const adminEmail = "admin@admin.com";
-        const adminProductButton = document.getElementById('productsLink');
+        const adminProductButton = document.getElementById('productsButton');
 
         if (user && user.email === adminEmail) {
             if (window.location.pathname.includes('index.html')) {
@@ -129,31 +129,36 @@ document.addEventListener("DOMContentLoaded", function() {
         const user = JSON.parse(localStorage.getItem('user'));
 
         if (token && user) {
+            // Elementos para o menu desktop
             const loginLink = document.getElementById('loginLink');
             const personIcon = document.querySelector('#desktopLoginOption .material-symbols-outlined');
             const desktopUserDetails = document.getElementById('desktopUserDetails');
             const userNameDesktop = document.getElementById('userNameDesktop');
             const logoutButtonDesktop = document.getElementById('logoutButtonDesktop');
 
-            if (loginLink) loginLink.style.display = 'none';
-            if (personIcon) personIcon.style.display = 'none';
-
-            if (desktopUserDetails) {
-                desktopUserDetails.style.display = 'flex';
-                if (userNameDesktop) userNameDesktop.textContent = user.nome;
-            }
-
+            // Elementos para o menu mobile
             const mobileUserDetails = document.getElementById('mobileUserDetails');
             const userNameMobile = document.getElementById('userNameMobile');
             const mobileLoginOption = document.getElementById('mobileLoginOption');
             const logoutButtonMobile = document.getElementById('logoutButtonMobile');
 
-            if (mobileLoginOption) mobileLoginOption.style.display = 'none';
+            // Atualizando o menu desktop
+            if (loginLink) loginLink.style.display = 'none';
+            if (personIcon) personIcon.style.display = 'none';
+
+            if (desktopUserDetails) {
+                desktopUserDetails.style.display = 'flex'; // Exibe detalhes do usuário no desktop
+                if (userNameDesktop) userNameDesktop.textContent = user.nome;
+            }
+
+            // Atualizando o menu mobile
+            if (mobileLoginOption) mobileLoginOption.style.display = 'none'; // Oculta opção de login no mobile
             if (mobileUserDetails) {
-                mobileUserDetails.style.display = 'flex';
+                mobileUserDetails.style.display = 'flex'; // Exibe detalhes do usuário no mobile
                 if (userNameMobile) userNameMobile.textContent = user.nome;
             }
 
+            // Adicionando eventos de logout
             const logoutButtons = document.querySelectorAll('.logoutButton');
             logoutButtons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -162,6 +167,22 @@ document.addEventListener("DOMContentLoaded", function() {
                     window.location.reload();
                 });
             });
+        } else {
+            // Se o usuário não estiver logado
+            const loginLink = document.getElementById('loginLink');
+            const personIcon = document.querySelector('#desktopLoginOption .material-symbols-outlined');
+            const desktopUserDetails = document.getElementById('desktopUserDetails');
+            const mobileLoginOption = document.getElementById('mobileLoginOption');
+            const mobileUserDetails = document.getElementById('mobileUserDetails');
+
+            // Atualizando o menu desktop
+            if (loginLink) loginLink.style.display = 'block';
+            if (personIcon) personIcon.style.display = 'block';
+            if (desktopUserDetails) desktopUserDetails.style.display = 'none';
+
+            // Atualizando o menu mobile
+            if (mobileLoginOption) mobileLoginOption.style.display = 'block';
+            if (mobileUserDetails) mobileUserDetails.style.display = 'none';
         }
     }
 

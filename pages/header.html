@@ -1,4 +1,3 @@
-
 <header>
     <div class="top-header">
         <div class="icon-mobile" style="padding-bottom: 3px">
@@ -8,21 +7,15 @@
             <img src="images/logo.png" alt="logo" />
         </div>
         <h1 class="desktop-only">
-            <span class="chic">Chic</span>
+            <span  >Chic</span>
             <span class="beauty">Beauty</span>
         </h1>
         <div class="search">
             <input type="search" name="search" placeholder="O que você procura hoje?" />
         </div>
-        <nav class="options">
-            <div class="login-option" id="desktopLoginOption">
-                <span class="material-symbols-outlined">person</span>
-                <a href="./pages/login.html" id="loginLink">Entrar</a>
-                <div id="desktopUserDetails" style="display: none;">
-                    <span id="userNameDesktop"></span>
-                    <button id="logoutButtonDesktop" class="logoutButton">Sair</button>
-                </div>
-            </div>
+
+        <nav class="cadastroProdutos">
+            <button class="buttonCadastarProdutos" id="productsButton" style="display: none;" onclick="location.href='./pages/produtos.html'">Cadastrar Produtos</button>
         </nav>
     </div>
     <div class="menu">
@@ -32,7 +25,7 @@
         <a href="#" class="category-link" data-category="corpo-e-banho">Corpo e Banho</a>
         <a href="#" class="category-link" data-category="cabelos">Cabelos</a>
         <a href="#" class="category-link" data-category="make">Make</a>
-        <a href="./pages/produtos.html" id="productsLink" style="display: none;">Cadastrar Produtos</a>
+        
         <div class="login-option" id="mobileUserDetails" style="display: none;">
             <span id="userNameMobile"></span>
             <button id="logoutButtonMobile" class="logoutButton">Sair</button>
@@ -45,5 +38,4 @@
     <div class="search-mobile">
         <input type="search" name="search" placeholder="O que você procura hoje?" />
     </div>
-    
 </header>

@@ -60,13 +60,16 @@
   text-align: center; 
   font-size: 28px;
   font-weight: bold;
+  margin-top: 15px;
 }
 
 .pagina-inicial {
   text-align: center;
+  margin-top: 15px;
+
 }
 .buttonCadastrarProduto {
-  margin-top: 65px;
+  margin-top: 35px;
 }
 
 /* Estilos para dispositivos móveis */

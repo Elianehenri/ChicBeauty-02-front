@@ -1,4 +1,5 @@
 
+
 document.addEventListener("DOMContentLoaded", function() {
     // Função para preencher o <select> com categorias
     function populateCategories() {
@@ -82,7 +83,6 @@ document.addEventListener("DOMContentLoaded", function() {
                                         <h2>${produto.nome}</h2>
                                         <h3>R$ ${produto.preco.toFixed(2)}</h3>
                                         <p>${produto.parcelas}x de R$ ${(produto.preco / produto.parcelas).toFixed(2)}</p>
-                                        <button>COMPRAR</button>
                                         ${window.location.pathname.includes('produtos.html') ? `<button class="btn btn-primary edit-button" onclick="window.location.href='../pages/editProdutos.html?id=${produto._id}'">Editar Produto</button>` : ''}
                                     </div>
                                 </div>

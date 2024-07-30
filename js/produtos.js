@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                     <div class="content-produto">
                                         <h2>${produto.nome}</h2>
                                         <h3>R$ ${produto.preco.toFixed(2)}</h3>
-                                        <p>3x de R$ ${(produto.preco / 3).toFixed(2)}</p>
+                                        <p>${produto.parcelas}x de R$ ${(produto.preco / produto.parcelas).toFixed(2)}</p>
                                         <button>COMPRAR</button>
                                         ${window.location.pathname.includes('produtos.html') ? `<button class="btn btn-primary edit-button" onclick="window.location.href='../pages/editProdutos.html?id=${produto._id}'">Editar Produto</button>` : ''}
                                     </div>

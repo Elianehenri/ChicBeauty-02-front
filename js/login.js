@@ -1,3 +1,5 @@
+/* The above code is a JavaScript script that handles a login form functionality. Here is a breakdown
+of what the code does: */
 /* 
 document.addEventListener('DOMContentLoaded', (event) => {
     const form = document.querySelector('#loginForm');

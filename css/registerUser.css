@@ -37,6 +37,7 @@
     color: var(--color-erro); /* Cor vermelha para o asterisco */
     margin-left: 0.25em; /* Pequeno espaçamento à esquerda */
     font-weight: bold; /* Negrito para destaque */
+    font-size: 18px;
 }
 
 /*container avatar*/

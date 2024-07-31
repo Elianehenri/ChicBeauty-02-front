@@ -6,10 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Lista de categorias para mapeamento
     const categorias = [
-        { id: '6696cc572b69d0e5d852e268', nome: 'perfumaria' },
-        { id: '6696cbd52b69d0e5d852e261', nome: 'corpo-e-banho' },
-        { id: '6696cc382b69d0e5d852e264', nome: 'cabelos' },
-        { id: '6696cc462b69d0e5d852e266', nome: 'make' }
+        { id: '6696cc572b69d0e5d852e268', nome: 'Perfumaria' },
+        { id: '6696cbd52b69d0e5d852e261', nome: 'Corpo-e-Banho' },
+        { id: '6696cc382b69d0e5d852e264', nome: 'Cabelos' },
+        { id: '6696cc462b69d0e5d852e266', nome: 'Make' }
     ];
 
     // Função para preencher o select de categorias

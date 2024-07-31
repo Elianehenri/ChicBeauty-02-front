@@ -1,30 +1,5 @@
 
-
 document.addEventListener("DOMContentLoaded", function() {
-    // Função para preencher o <select> com categorias
-    function populateCategories() {
-        const categoriaSelect = document.getElementById('categoria');
-
-        if (!categoriaSelect) {
-            console.warn('Elemento <select> com ID "categoria" não encontrado. A função populateCategories não será executada.');
-            return; // Retorna se o elemento não for encontrado
-        }
-
-        fetch('http://localhost:3000/api/categories')
-            .then(response => response.json())
-            .then(categories => {
-                categoriaSelect.innerHTML = '<option value="">Selecione</option>';
-
-                categories.forEach(category => {
-                    const option = document.createElement('option');
-                    option.value = category._id;
-                    option.textContent = category.nome;
-                    categoriaSelect.appendChild(option);
-                });
-            })
-            .catch(error => console.error('Erro ao obter categorias:', error));
-    }
-
     // Função para filtrar os produtos
     function filterProducts(category) {
         const allProducts = document.querySelectorAll(".produtos");
@@ -111,7 +86,6 @@ document.addEventListener("DOMContentLoaded", function() {
             : '';
     }
 
-    // Preenche as categorias e busca os produtos quando a página carregar
-    populateCategories();
+    // Busca os produtos quando a página carregar
     fetchProducts();
 });

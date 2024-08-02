@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
     categoryLinks.forEach(link => {
         link.addEventListener("click", (event) => {
             event.preventDefault();
-            const category = event.target.dataset.category;
+            const category = event.target.dataset.category || 'all'; // Usa 'all' se não houver categoria
             filterProducts(category);
         });
     });

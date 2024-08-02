@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const productId = document.getElementById('product-id').value;
 
-        console.log('Enviando requisição PUT para atualizar o produto:', productId); // Adiciona log
-        console.log('Dados de atualização:', formData); // Adiciona log
+        // console.log('Enviando requisição PUT para atualizar o produto:', productId); // Adiciona log
+        // console.log('Dados de atualização:', formData); // Adiciona log
 
         fetch(`http://localhost:3000/api/products/${productId}`, {
             method: 'PUT',

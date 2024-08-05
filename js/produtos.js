@@ -1,6 +1,5 @@
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Função para filtrar os produtos
     function filterProducts(category) {
         const allProducts = document.querySelectorAll(".produtos");
 
@@ -13,17 +12,15 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Adiciona evento de clique nos links do menu de categorias
     const categoryLinks = document.querySelectorAll(".category-link");
     categoryLinks.forEach(link => {
         link.addEventListener("click", (event) => {
             event.preventDefault();
-            const category = event.target.dataset.category || 'all'; // Usa 'all' se não houver categoria
+            const category = event.target.dataset.category || 'all';
             filterProducts(category);
         });
     });
 
-    // Função para buscar produtos e adicioná-los às categorias corretas
     function fetchProducts() {
         fetch('http://localhost:3000/api/products')
             .then(response => response.json())
@@ -58,7 +55,10 @@ document.addEventListener("DOMContentLoaded", function() {
                                         <h2>${produto.nome}</h2>
                                         <h3>R$ ${produto.preco.toFixed(2)}</h3>
                                         <p>${produto.parcelas}x de R$ ${(produto.preco / produto.parcelas).toFixed(2)}</p>
-                                        ${window.location.pathname.includes('produtos.html') ? `<button class="btn btn-primary edit-button" onclick="window.location.href='../pages/editProdutos.html?id=${produto._id}'">Editar Produto</button>` : ''}
+                                        ${window.location.pathname.includes('produtos.html') 
+                                            ? `<button class="btn btn-primary edit-button" onclick="window.location.href='../pages/editProdutos.html?id=${produto._id}'">Editar Produto</button>` 
+                                            : ''}
+                                        <button class="btn btn-success buy-button" onclick="buyProduct('${produto._id}')">Comprar</button>
                                     </div>
                                 </div>
                             `;
@@ -72,20 +72,41 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Erro:', error));
     }
 
-    // Exibe ou oculta o botão "Cadastrar Novo Produto" conforme a página
-    const cadastrarNovoProduto = document.getElementById('cadastrar-novo-produto');
-    if (cadastrarNovoProduto) {
-        cadastrarNovoProduto.style.display = window.location.pathname.includes('produtos.html') ? 'block' : 'none';
-    }
-
-    // Exibe ou oculta o link para a página inicial conforme a página
-    const paginaInicial = document.getElementById('pagina-inicial');
-    if (paginaInicial) {
-        paginaInicial.innerHTML = window.location.pathname.includes('produtos.html') 
-            ? '<p>Pagina Inicial <a href="../index.html">Inicio</a></p>' 
-            : '';
-    }
-
-    // Busca os produtos quando a página carregar
+    window.buyProduct = function(productId) {
+        // Recupera o usuário atual do localStorage
+        const currentUser = JSON.parse(localStorage.getItem('user'));
+    
+        if (!currentUser) {
+            // Usuário não está logado, exibe um alerta e retorna
+            alert('Você precisa estar logado para comprar um produto. Faça login e tente novamente.');
+            return;
+        }
+    
+        // Se o usuário estiver logado, continue com a compra
+        fetch(`http://localhost:3000/api/products/${productId}`)
+            .then(response => response.json())
+            .then(product => {
+                console.log(`Produto ${productId} comprado!`);
+    
+                // Recupera produtos comprados do localStorage
+                let purchasedProducts = JSON.parse(localStorage.getItem('purchasedProducts')) || [];
+    
+                // Adiciona o produto comprado com informações do usuário
+                purchasedProducts.push({
+                    ...product,
+                    userId: currentUser._id // Adiciona o ID do usuário aos produtos comprados
+                });
+    
+                // Armazena os produtos comprados no localStorage
+                localStorage.setItem('purchasedProducts', JSON.stringify(purchasedProducts));
+                
+                alert('Produto comprado com sucesso!');
+    
+                // Redireciona para a página de carrinho
+                window.location.href = '../pages/cart.html';
+            })
+            .catch(error => console.error('Erro ao comprar o produto:', error));
+    };
+    
     fetchProducts();
 });

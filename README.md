@@ -1,5 +1,8 @@
 # Projeto Final - DevWeb
 
+## Visualizar o projeto em video.
+ 
+Acesse o [link](https://drive.google.com/file/d/1PvKCDelKc4pJ_xp3pkA4Eoyn39MBVlev/view) para visualizar o protifolio.
 # ChicBeauty Frontend
 Este é o frontend do projeto ChicBeauty, uma aplicação para gerenciamento e visualização de produtos e categorias. O frontend é construído com HTML, CSS, JavaScript e usa Bootstrap e jQuery para a interface.
 
@@ -44,9 +47,7 @@ npm install
 - Bootstrap - Framework de CSS para design responsivo e componentes.
 - jQuery - Biblioteca JavaScript para manipulação de DOM e eventos.
 
-# Visualizar o projeto.
- 
-Acesse o [link](https://chic-beauty-02.vercel.app/index.html) para visualizar o protifolio.
+
 
 
 ## Usuarios e senha cadastrados para teste

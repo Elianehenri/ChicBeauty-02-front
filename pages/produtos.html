@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,18 +7,11 @@
     <title>Produtos</title>
 </head>
 <body>
-   
-    
     <main>
+        
+           
        
-          <!-- Link para a página inicial -->
-          <div id="pagina-inicial" class="pagina-inicial">
-            <!-- O conteúdo será inserido pelo JavaScript -->
-        </div>
-        <div id="cadastrar-novo-produto" class="cadastrar-novo-produto" style="display: none;">
-            <button class="buttonCadastrarProduto" onclick="window.location.href='../pages/registerProdutos.html'">Cadastrar Novo Produto</button>
-        </div>
-
+        <button id="inicio-button" class="inicio-button" onclick="logout()">Início</button>
         <!-- Seções de produtos -->
         <section class="produtos" data-category="Perfumaria">
             <div class="titulo-categoria">
@@ -48,10 +40,9 @@
             </div>
             <div class="produtos-container"></div>
         </section>
-        
-      
     </main>
 
     <script src="../js/produtos.js"></script>
 </body>
 </html>
+

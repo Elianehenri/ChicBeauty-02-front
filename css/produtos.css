@@ -72,6 +72,32 @@
   margin-top: 35px;
 }
 
+.inicio-button {
+  width: 100%;
+  height: 25px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px; /* Adiciona espaço abaixo do botão */
+  background-color: var(--secondary-color);
+  color: var(--branco);
+  font-weight: 500;
+  font-size: 18px;
+  font-family: var(--fonte-secundary);
+  cursor: pointer;
+ 
+  
+}
+/* Garanta que o botão não esteja visível por padrão */
+#inicio-button {
+  display: none; /* ou inline, dependendo do seu layout */
+}
+
+/* Garanta que o botão não apareça nas URLs específicas */
+.hide-on-index {
+  display: none;
+}
+
 /* Estilos para dispositivos móveis */
 @media (max-width: 768px) {
   .produtos-container {

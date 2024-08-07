@@ -1,26 +1,29 @@
 
 document.addEventListener("DOMContentLoaded", function() {
-    function filterProducts(category) {
-        const allProducts = document.querySelectorAll(".produtos");
-
-        allProducts.forEach(productSection => {
-            if (category === "all" || productSection.dataset.category === category) {
-                productSection.style.display = "block";
+    function showInicioButtonForAdmin() {
+        const inicioButton = document.getElementById('inicio-button');
+        const currentUser = JSON.parse(localStorage.getItem('user'));
+        
+        if (inicioButton && currentUser) {
+            // Verifica se o usuário logado é o administrador
+            if (currentUser.email === 'admin@admin.com') {
+                inicioButton.style.display = 'block'; // Mostra o botão
             } else {
-                productSection.style.display = "none";
+                inicioButton.style.display = 'none'; // Esconde o botão
             }
-        });
+        }
     }
 
-    const categoryLinks = document.querySelectorAll(".category-link");
-    categoryLinks.forEach(link => {
-        link.addEventListener("click", (event) => {
-            event.preventDefault();
-            const category = event.target.dataset.category || 'all';
-            filterProducts(category);
-        });
-    });
+    // Função de logout
+    window.logout = function() {
+        localStorage.removeItem('user');
+        window.location.href = '../index.html';
+    };
 
+    // Chama a função para mostrar o botão apenas para o administrador
+    showInicioButtonForAdmin();
+
+    // Função para buscar produtos
     function fetchProducts() {
         fetch('http://localhost:3000/api/products')
             .then(response => response.json())
@@ -73,40 +76,34 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     window.buyProduct = function(productId) {
-        // Recupera o usuário atual do localStorage
         const currentUser = JSON.parse(localStorage.getItem('user'));
     
         if (!currentUser) {
-            // Usuário não está logado, exibe um alerta e retorna
             alert('Você precisa estar logado para comprar um produto. Faça login e tente novamente.');
             return;
         }
     
-        // Se o usuário estiver logado, continue com a compra
         fetch(`http://localhost:3000/api/products/${productId}`)
             .then(response => response.json())
             .then(product => {
                 console.log(`Produto ${productId} comprado!`);
     
-                // Recupera produtos comprados do localStorage
                 let purchasedProducts = JSON.parse(localStorage.getItem('purchasedProducts')) || [];
     
-                // Adiciona o produto comprado com informações do usuário
                 purchasedProducts.push({
                     ...product,
-                    userId: currentUser._id // Adiciona o ID do usuário aos produtos comprados
+                    userId: currentUser._id
                 });
     
-                // Armazena os produtos comprados no localStorage
                 localStorage.setItem('purchasedProducts', JSON.stringify(purchasedProducts));
                 
                 alert('Produto comprado com sucesso!');
     
-                // Redireciona para a página de carrinho
                 window.location.href = '../pages/cart.html';
             })
             .catch(error => console.error('Erro ao comprar o produto:', error));
     };
-    
+
+    // Busca produtos ao carregar a página
     fetchProducts();
 });

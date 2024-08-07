@@ -59,7 +59,8 @@ document.addEventListener("DOMContentLoaded", function() {
                                         <h3>R$ ${produto.preco.toFixed(2)}</h3>
                                         <p>${produto.parcelas}x de R$ ${(produto.preco / produto.parcelas).toFixed(2)}</p>
                                         ${window.location.pathname.includes('produtos.html') 
-                                            ? `<button class="btn btn-primary edit-button" onclick="window.location.href='../pages/editProdutos.html?id=${produto._id}'">Editar Produto</button>` 
+                                            ? `<button class="btn btn-primary edit-button" onclick="window.location.href='../pages/editProdutos.html?id=${produto._id}'">Editar Produto</button>
+                                               <button class="btn btn-danger delete-button" onclick="deleteProduct('${produto._id}')">Deletar Produto</button>`
                                             : ''}
                                         <button class="btn btn-success buy-button" onclick="buyProduct('${produto._id}')">Comprar</button>
                                     </div>
@@ -102,6 +103,25 @@ document.addEventListener("DOMContentLoaded", function() {
                 window.location.href = '../pages/cart.html';
             })
             .catch(error => console.error('Erro ao comprar o produto:', error));
+    };
+
+    window.deleteProduct = function(productId) {
+        if (!confirm('Tem certeza de que deseja deletar este produto?')) {
+            return;
+        }
+
+        fetch(`http://localhost:3000/api/products/${productId}`, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Produto deletado com sucesso!');
+                fetchProducts(); // Atualiza a lista de produtos após a exclusão
+            } else {
+                throw new Error('Erro ao deletar o produto.');
+            }
+        })
+        .catch(error => console.error('Erro:', error));
     };
 
     // Busca produtos ao carregar a página
